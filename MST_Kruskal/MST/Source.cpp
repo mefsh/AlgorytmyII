@@ -1,3 +1,8 @@
+/*
+ * \author Bartosz Stasiak
+ * \version 1.0 2017.04.22
+ * \brief A program to find minimal spanning tree.
+ */
 #include <vector>
 #include <iostream>
 
