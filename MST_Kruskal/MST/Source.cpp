@@ -35,8 +35,9 @@ int main()
 	fillArrays(vertices_array, edges_array);
 	sort(edges_array);
 
+	cout << "Struktury pomocnicze:" << endl;
 	makeMST(vertices_array, edges_array);
-
+	cout << "Wynik:" << endl;
 	printData(vertices_array, edges_array);
 	return 0;
 }
@@ -104,6 +105,7 @@ unsigned findIndexByVertId(const std::vector<Vertices>& vertices_array, unsigned
 
 void makeMST(std::vector<Vertices>& vertices_array, std::vector<Edges>& edges_array)
 {
+	std::vector<Edges> temp_edg_arr;
 	unsigned arr_size = edges_array.size();
 	for (unsigned i = 0; i < arr_size; i++)
 	{
@@ -115,6 +117,9 @@ void makeMST(std::vector<Vertices>& vertices_array, std::vector<Edges>& edges_ar
 		if (color1 != color2)
 		{
 			edges_array.push_back(edges_array[0]);
+			temp_edg_arr.push_back(edges_array[0]);
+			printData(vertices_array, temp_edg_arr);
+			cout << endl;
 			setColor(vertices_array, color1, color2);
 		}
 		edges_array.erase(edges_array.begin());
