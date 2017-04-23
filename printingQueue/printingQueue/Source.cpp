@@ -1,6 +1,6 @@
 /*
- * \brief Purpose: Count when my task will be printed.
- * \details Assumptions: The data is valid.
+ * Purpose: Count when my task will be printed.
+ * Assumptions: The data is valid.
  * 
  * \author: Bartosz Stasiak
  * \version: 1.0 2017.04.22
