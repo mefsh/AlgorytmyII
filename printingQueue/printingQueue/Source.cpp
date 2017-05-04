@@ -11,7 +11,6 @@
 
 using std::cin;
 
-
 /**
  * \class PrintingQueue
  * \brief Printing Queue Class
@@ -23,7 +22,7 @@ using std::cin;
 class PrintingQueue
 {
 	std::vector<int> tasksArray;	/*!< An array for tasks.*/
-	int arraySize;	/*!< An array size.*/
+	int arraySize;	/*!< An array's size.*/
 	int timeToWait;	/*!< Time to wait until our task will be printed.*/
 	int myTaskPositon;	/*!< Position of our task in queue.*/
 	bool printMyTask;	/*!< To check if our task's been printed.*/
