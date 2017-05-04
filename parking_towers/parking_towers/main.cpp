@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+//#include <chrono>
 
 struct position //struct for x,y
 {
@@ -27,7 +28,11 @@ void addSecs(long&, int);
 
 int main()
 {
+//	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 	runAlgorithhm();
+//	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+//	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+//	std::cout << duration << " microsecs\n";
 	return 0;
 }
 
