@@ -28,11 +28,11 @@ class ParkingTowers
 	 */
 	struct positionAddr
 	{
-		long id;
-		long x;
-		long y;
+		int id;
+		int x;
+		int y;
 
-		positionAddr(long id = 0, long x = 0, long y = 0);
+		positionAddr(int id = 0, int x = 0, int y = 0);
 	};
 
 	std::vector<positionAddr> listOfQueuedCars;/*!< An array for queued cars on parking.*/
@@ -96,7 +96,7 @@ int main()
 	return 0;
 }
 
-ParkingTowers::positionAddr::positionAddr(long id, long x, long y) : id(0), x(0), y(0)
+ParkingTowers::positionAddr::positionAddr(int id, int x, int y) : id(0), x(0), y(0)
 {
 	this->id = id;
 	this->x = x;
