@@ -13,8 +13,6 @@
 #include <vector>
 #include <iostream>
 
-//Call functions etc
-void start();
 //fill an array with numbers, get address of stream to remember cursor position
 void fillArrayWithData(std::vector<long>&, unsigned short);
 //just heapsort
@@ -25,13 +23,6 @@ void showArray(const std::vector<long>&, char);
 void moveLastToRoot(std::vector<long>&);
 
 int main()
-{
-	start();
-
-	return 0;
-}
-
-void start()
 {
 	using namespace std;
 
@@ -67,6 +58,7 @@ void start()
 		showArray(output_array, 'd'); //show output array descending
 		cout << endl;
 	}
+	return 0;
 }
 
 void fillArrayWithData(std::vector<long>& tab, unsigned short size)

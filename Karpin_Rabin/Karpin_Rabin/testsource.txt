@@ -1,0 +1,5 @@
+2
+tekst.txt
+abba
+tekst.txt
+bbba

@@ -5,10 +5,7 @@
  */
 #include <vector>
 #include <iostream>
-
-using std::cin;
-using std::cout;
-using std::endl;
+#include <algorithm>
 
 struct Vertices
 {
@@ -24,8 +21,12 @@ struct Edges
 	unsigned weight;
 };
 
+bool sortByEdges(const Edges& lhs, const Edges& rhs)
+{
+	return (lhs.weight < rhs.weight);
+}
+
 void fillArrays(std::vector<Vertices>&, std::vector<Edges>&);
-void sort(std::vector<Edges>&);
 void swapStructs(Edges&, Edges&);
 unsigned findIndexByVertId(const std::vector<Vertices>&, unsigned);
 void setColor(std::vector<Vertices>&, unsigned, unsigned);
@@ -38,11 +39,11 @@ int main()
 	std::vector<Edges> edges_array;
 
 	fillArrays(vertices_array, edges_array);
-	sort(edges_array);
+	sort(edges_array.begin(),edges_array.end(),sortByEdges);
 
-	cout << "Struktury pomocnicze:" << endl;
+	std::cout << "Struktury pomocnicze:" << std::endl;
 	makeMST(vertices_array, edges_array);
-	cout << "Wynik:" << endl;
+	std::cout << "Wynik:" << std::endl;
 	printData(vertices_array, edges_array);
 	return 0;
 }
@@ -52,11 +53,11 @@ void fillArrays(std::vector<Vertices>& vertices_array, std::vector<Edges>& edges
 	Vertices vert_obj;
 
 	unsigned nr_of_vertices;
-	cin >> nr_of_vertices;
+	std::cin >> nr_of_vertices;
 
 	for (unsigned i = 0; i < nr_of_vertices; i++)
 	{
-		cin >> vert_obj.id >> vert_obj.name;
+		std::cin >> vert_obj.id >> vert_obj.name;
 		vert_obj.color = vert_obj.id;
 		vertices_array.push_back(vert_obj);
 	}
@@ -64,25 +65,12 @@ void fillArrays(std::vector<Vertices>& vertices_array, std::vector<Edges>& edges
 	Edges edge_obj;
 
 	unsigned nr_of_edges;
-	cin >> nr_of_edges;
+	std::cin >> nr_of_edges;
 
 	for (unsigned i = 0; i < nr_of_edges; i++)
 	{
-		cin >> edge_obj.id_vertex1 >> edge_obj.id_vertex2 >> edge_obj.weight;
+		std::cin >> edge_obj.id_vertex1 >> edge_obj.id_vertex2 >> edge_obj.weight;
 		edges_array.push_back(edge_obj);
-	}
-}
-
-
-void sort(std::vector<Edges>& edges_array)
-{
-	for (unsigned i = 0; i < edges_array.size() - 1; i++)
-	{
-		for (unsigned j = 0; j < edges_array.size() - 1; j++)
-		{
-			if (edges_array[j].weight > edges_array[j + 1].weight)
-				swapStructs(edges_array[j], edges_array[j + 1]);
-		}
 	}
 }
 
@@ -124,7 +112,7 @@ void makeMST(std::vector<Vertices>& vertices_array, std::vector<Edges>& edges_ar
 			edges_array.push_back(edges_array[0]);
 			temp_edg_arr.push_back(edges_array[0]);
 			printData(vertices_array, temp_edg_arr);
-			cout << endl;
+			std::cout << std::endl;
 			setColor(vertices_array, color1, color2);
 		}
 		edges_array.erase(edges_array.begin());
@@ -147,8 +135,8 @@ void printData(const std::vector<Vertices>& vertices_array, const std::vector<Ed
 		unsigned vert1_index = findIndexByVertId(vertices_array, edges_array[i].id_vertex1);
 		unsigned vert2_index = findIndexByVertId(vertices_array, edges_array[i].id_vertex2);
 
-		cout << vertices_array[vert1_index].name << " ";
-		cout << vertices_array[vert2_index].name << " ";
-		cout << edges_array[i].weight << endl;
+		std::cout << vertices_array[vert1_index].name << " ";
+		std::cout << vertices_array[vert2_index].name << " ";
+		std::cout << edges_array[i].weight << std::endl;
 	}
 }
