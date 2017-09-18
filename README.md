@@ -1,3 +1,3 @@
 # AlgorytmyII
-Programy wykonane w ramach zadanych do rozwiązania problemów na ćwiczeniach i wykładach z Algorytmów II.  
+Algorytmy II
 W środku każdego folderu znajduje się pdf opisujący zadanie.
